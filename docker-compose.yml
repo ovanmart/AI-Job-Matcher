@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: ai-job-matcher-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: jobmatcher
+      POSTGRES_PASSWORD: jobmatcher_dev
+      POSTGRES_DB: jobmatcher
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
